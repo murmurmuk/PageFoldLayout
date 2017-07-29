@@ -43,10 +43,10 @@ Wrap original layout in PageFoldLayout
 set PageFoldTransformer as the page transformer.
 
 ```java
-    ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
+    ViewPager viewPager = (ViewPager) findViewById(R.id.pager);
     MyAdapter myAdapter = new MyAdapter(getSupportFragmentManager());
-    mViewPager.setAdapter(myAdapter);
-    mViewPager.setPageTransformer(true, new PageFoldTransformer());
+    viewPager.setAdapter(myAdapter);
+    viewPager.setPageTransformer(true, new PageFoldTransformer());
 ```
 
 
