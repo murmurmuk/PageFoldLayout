@@ -5,6 +5,8 @@ Create a page-fold animation for ViewPager scrolling.
 
 Based on: http://blog.csdn.net/aigestudio/article/details/42686907
 
+![image](https://github.com/murmurmuk/PageFoldLayout/blob/master/demo.gif)
+
 How to use:
 =======
 
@@ -41,7 +43,7 @@ Wrap original layout in PageFoldLayout
 set PageFoldTransformer as the page transformer.
 
 ```java
-	ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
+    ViewPager mViewPager = (ViewPager) findViewById(R.id.pager);
     MyAdapter myAdapter = new MyAdapter(getSupportFragmentManager());
     mViewPager.setAdapter(myAdapter);
     mViewPager.setPageTransformer(true, new PageFoldTransformer());
@@ -65,7 +67,7 @@ then add a library dependency
 
 ```groovy
 	dependencies {
-    	compile 'com.github.murmurmuk:PageFoldLayout:1.0'
+        compile 'com.github.murmurmuk:PageFoldLayout:1.0'
 	}
 ```
 
