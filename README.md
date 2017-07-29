@@ -67,7 +67,7 @@ then add a library dependency
 
 ```groovy
 	dependencies {
-        compile 'com.github.murmurmuk:PageFoldLayout:1.0'
+	    compile 'com.github.murmurmuk:PageFoldLayout:1.0'
 	}
 ```
 
