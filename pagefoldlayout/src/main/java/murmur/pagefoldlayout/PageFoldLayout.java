@@ -32,17 +32,20 @@ public class PageFoldLayout extends FrameLayout {
 
     public PageFoldLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
     }
+
+    private float bezierP(float p1, float p2, float p3, float t){
+        return (1 - t) * (1 - t) * p1 + 2 * (1 - t) * t * p2 + t * t * p3;
+    }
+
 
     public void updatePoint(float percent){
         mPercent = percent;
         if(percent < 0){
             percent += 1;
         }
-        float angle = 180 * percent;
-        mPointX = mWidth * 2 * angle / 180;
-        mPointY = mHeight - (float)Math.sin(Math.toRadians(angle)) * HEIGHT_LIMIT;
+        mPointX = bezierP(0f, mWidth, (mWidth << 1), percent);
+        mPointY = bezierP(mHeight, HEIGHT_LIMIT, mHeight, percent);
         //Log.d("kanna", "update " + mPointX + " " + mPointY + " " + percent + " " + angle);
         invalidate();
     }
@@ -62,7 +65,7 @@ public class PageFoldLayout extends FrameLayout {
         initPaint();
         mWidth = w;
         mHeight = h;
-        HEIGHT_LIMIT = h >> 2;
+        HEIGHT_LIMIT = h >> 1;
     }
     private void drawView(Canvas canvas){
         if(mPercent > 0) {
